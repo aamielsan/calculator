@@ -1,0 +1,138 @@
+{
+   "openapi":"3.0.0",
+   "info":{
+      "title":"Calculator API",
+      "version":"v1.0",
+      "description":""
+   },
+   "tags":[
+      
+   ],
+   "paths":{
+      "/api/v1/calculate":{
+         "post":{
+            "summary":"Calculates the result for the given operation",
+            "description":null,
+            "tags":[
+               "/api/v1"
+            ],
+            "parameters":[
+               
+            ],
+            "requestBody":{
+               "content":{
+                  "application/json":{
+                     "example":{
+                        "x":1.0,
+                        "y":2.0,
+                        "operation":"ADD"
+                     },
+                     "schema":{
+                        "$ref":"#/components/schemas/object2052134680"
+                     }
+                  }
+               },
+               "required":true
+            },
+            "responses":{
+               "200":{
+                  "description":"OK",
+                  "content":{
+                     "application/json":{
+                        "example":{
+                           "data":3.0
+                        },
+                        "schema":{
+                           "$ref":"#/components/schemas/object1732250397"
+                        }
+                     }
+                  }
+               }
+            },
+            "security":[
+               {
+                  "api_key":[
+                     
+                  ]
+               }
+            ],
+            "operationId":"postApiV1Calculate",
+            "deprecated":false
+         }
+      },
+      "/api/v1/health":{
+         "get":{
+            "summary":"Health check endpoint",
+            "description":null,
+            "tags":[
+               "/api/v1"
+            ],
+            "parameters":[
+               
+            ],
+            "responses":{
+               "200":{
+                  "description":"",
+                  "content":{
+                     
+                  }
+               }
+            },
+            "security":[
+               
+            ],
+            "operationId":"getApiV1Health",
+            "deprecated":false
+         }
+      }
+   },
+   "components":{
+      "schemas":{
+         "object1732250397":{
+            "type":"object",
+            "required":[
+               
+            ],
+            "properties":{
+               "data":{
+                  "type":"number",
+                  "example":"3.0"
+               }
+            }
+         },
+         "object2052134680":{
+            "type":"object",
+            "required":[
+               
+            ],
+            "properties":{
+               "x":{
+                  "type":"number",
+                  "example":"1.0"
+               },
+               "y":{
+                  "type":"number",
+                  "example":"2.0"
+               },
+               "operation":{
+                  "type":"string",
+                  "example":"ADD"
+               }
+            }
+         }
+      },
+      "securitySchemes":{
+         "api_key":{
+            "type":"apiKey",
+            "in":"header",
+            "name":"x-api-key"
+         }
+      }
+   },
+   "servers":[
+      {
+         "url":"/",
+         "description":""
+      }
+   ]
+}
