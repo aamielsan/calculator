@@ -8,7 +8,7 @@ The API enables user to do simple arithmetic operations: `add`, `subtract`, `mul
 - [ ] Run the containerized application in ECS using Fargate
 - [ ] Expose the API to the public internet
 
-## Building and running
+## Building and running the application
 The application uses [Gradle](https://gradle.org/) to build the application's JAR with it's dependencies (fat JAR / uber JAR).
 
 The application can be built and run using the available shell scripts in the [scripts](./scripts/) directory
@@ -16,6 +16,7 @@ The application can be built and run using the available shell scripts in the [s
 ### Prerequisite
 - Java: If you don't have Java installed, you can install one from [adoptium](https://adoptium.net/en-GB/)
 - Gradle: This will be installed when running one of the scripts for the first time
+- CDK: Check this [AWS documentation](https://docs.aws.amazon.com/cdk/v2/guide/getting_started.html#getting_started_install) for getting started with CDK
 
 ### Available scripts
 There are helper shell scripts in the [scripts](./scripts/) directory.
@@ -68,8 +69,19 @@ Once the application server is up and running, the following endpoints should be
 ## Documentation
 A swagger documentation can be found in [swagger.json](./swagger.json)
 
+## Building and running CDK
+
+The [infra](./infra) project contains the infrastructure as code using CDK + Kotlin.
+
+To run the CDK commands such as `synth`, `deploy`, etc.
+```sh
+> cd infra/
+> cdk synth   # runs cdk synthesize command
+```
+
 ## Libraries used
 - [http4k](https://www.http4k.org/documentation/): for the server application
 - [junit5](https://junit.org/junit5/docs/current/user-guide/): for unit testing
 - [slf4j](https://www.slf4j.org/) and [logback](https://logback.qos.ch/): for logging
+- [cdk](https://docs.aws.amazon.com/cdk/v2/guide/home.html): for the infrastructure as code
 
